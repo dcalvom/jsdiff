@@ -23,17 +23,17 @@ HTMLWidgets.widget({
     			diff[i + 1] = swap;
     		}
     		var node;
-    		if (diff[i].removed) {
-    			node = document.createElement('del');
-    			node.appendChild(document.createTextNode(diff[i].value));
-    		} else if (diff[i].added) {
+			  if (diff[i].added) {
     			node = document.createElement('ins');
     			node.appendChild(document.createTextNode(diff[i].value));
-    		} else {
-      		node = document.createElement('span');
-    			node.appendChild(document.createTextNode(diff[i].value));
+				fragment.appendChild(node);
+    		} else {				
+  				if (!diff[i].removed) {
+  					node = document.createElement('span');
+  					node.appendChild(document.createTextNode(diff[i].value));
+  					fragment.appendChild(node);
+  				}
     		}
-    		fragment.appendChild(node);
     	}
     	result.text('');
     	result.append(fragment);
