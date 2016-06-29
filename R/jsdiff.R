@@ -47,7 +47,7 @@ toCharacter <- function(x) {
 #' @import shiny
 jsdiff_html <- function(id, style, class, ...){
   tags$div(id = id, class = class,
-           radioButtons("diff_type",  "Highlight using", c("Chars", "Words", "Lines"), inline = TRUE),
+           radioButtons("diff_type", "Highlight using", c("Chars", "Words", "Lines"), inline = TRUE),
            tags$pre(tags$code())
   )
 }
